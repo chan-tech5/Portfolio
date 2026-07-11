@@ -1091,19 +1091,19 @@
     }
   },
   "analytics": {
-    "visitors": 1334,
+    "visitors": 1336,
     "resumeDownloads": 185,
     "linkClicks": 342,
     "countries": [
       {
         "code": "IN",
         "name": "India",
-        "count": 885
+        "count": 886
       },
       {
         "code": "US",
         "name": "United States",
-        "count": 220
+        "count": 221
       },
       {
         "code": "GB",
