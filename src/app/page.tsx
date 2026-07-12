@@ -367,6 +367,16 @@ export default function Home() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // --- Smooth scroll helper (bypasses basePath hash issues) ---
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const navHeight = 64; // sticky header height
+      const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
   const navLinks = [
     { id: 'about', label: 'About', visibilityKey: 'about' },
     { id: 'journey', label: 'Journey', visibilityKey: 'timeline' },
@@ -447,9 +457,9 @@ export default function Home() {
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
-                <a
+                <button
                   key={link.id}
-                  href={`#${link.id}`}
+                  onClick={() => scrollToSection(link.id)}
                   className={`relative px-3 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider transition-colors duration-200 z-10 ${
                     isActive ? 'text-white' : 'text-zinc-400 hover:text-zinc-200'
                   }`}
@@ -463,7 +473,7 @@ export default function Home() {
                       style={{ boxShadow: `0 0 15px ${selectedAccent.primary}26` }}
                     />
                   )}
-                </a>
+                </button>
               );
             })}
           </nav>
@@ -479,12 +489,12 @@ export default function Home() {
               <span className="tracking-wider">K</span>
             </button>
 
-            <a 
-              href="#contact" 
+            <button
+              onClick={() => scrollToSection('contact')}
               className="hidden md:inline-block px-3.5 py-1.5 rounded-lg bg-white text-black text-[10px] font-bold uppercase tracking-wider hover:bg-zinc-200 transition-colors"
             >
               Contact
-            </a>
+            </button>
             
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -504,20 +514,22 @@ export default function Home() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-16 left-0 right-0 z-30 md:hidden bg-black/95 border-b border-white/10 backdrop-blur-2xl px-6 py-8 flex flex-col gap-6 overflow-hidden"
+              className="absolute top-16 left-0 right-0 z-30 md:hidden bg-black/98 border-b border-white/10 backdrop-blur-2xl px-6 py-8 flex flex-col gap-6 overflow-hidden"
             >
-              <nav className="flex flex-col gap-4 text-sm font-semibold uppercase tracking-wider text-zinc-400" aria-label="Mobile navigation">
+              <nav className="flex flex-col gap-1 text-sm font-semibold uppercase tracking-wider text-zinc-400" aria-label="Mobile navigation">
                 {navLinks.map((link, idx) => {
                   const isActive = activeSection === link.id;
                   return (
-                    <motion.a
+                    <motion.button
                       key={link.id}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: idx * 0.04 }}
-                      href={`#${link.id}`}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`py-2 px-3 rounded-xl transition-all duration-200 ${
+                      onClick={() => {
+                        scrollToSection(link.id);
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className={`w-full text-left py-3 px-3 rounded-xl transition-all duration-200 ${
                         isActive 
                           ? 'text-white bg-white/5 font-extrabold border-l-2' 
                           : 'hover:text-white hover:translate-x-1'
@@ -525,19 +537,21 @@ export default function Home() {
                       style={isActive ? { borderLeftColor: 'var(--primary)' } : {}}
                     >
                       {link.label}
-                    </motion.a>
+                    </motion.button>
                   );
                 })}
               </nav>
               
               <div className="pt-4 border-t border-white/5 flex flex-col gap-3">
-                <a
-                  href="#contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                <button
+                  onClick={() => {
+                    scrollToSection('contact');
+                    setIsMobileMenuOpen(false);
+                  }}
                   className="w-full text-center py-3 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-widest hover:bg-zinc-200 transition-colors"
                 >
                   Contact
-                </a>
+                </button>
               </div>
             </motion.div>
           )}

@@ -134,8 +134,8 @@ export default function Timeline({ items }: TimelineProps) {
 
   return (
     <div className="relative max-w-4xl mx-auto px-4 py-12">
-      {/* Central glowing vertical track */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-[2px] bg-zinc-900" />
+      {/* Mobile: left-side line | Desktop: center line */}
+      <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-zinc-900" />
       
       {/* Dynamic scrolling glow mask */}
       <motion.div 
@@ -143,20 +143,20 @@ export default function Timeline({ items }: TimelineProps) {
         whileInView={{ height: '100%' }}
         viewport={{ once: false, margin: '-10% 0px -10% 0px' }}
         transition={{ duration: 1.5, ease: 'easeOut' }}
-        className="absolute left-1/2 transform -translate-x-1/2 top-0 w-[2px] bg-gradient-to-b from-purple-500 via-pink-500 to-transparent origin-top shadow-[0_0_15px_rgba(236,72,153,0.5)]"
+        className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 w-[2px] bg-gradient-to-b from-purple-500 via-pink-500 to-transparent origin-top shadow-[0_0_15px_rgba(236,72,153,0.5)]"
       />
 
-      <div className="space-y-16">
+      <div className="space-y-10 md:space-y-16">
         {sortedItems.map((item, index) => {
           const isLeft = index % 2 === 0;
           const typeKey = (item.type || 'event').toLowerCase();
           const cfg = typeConfig[typeKey] || defaultConfig;
 
           return (
-            <div key={item.id} className="relative flex flex-col md:flex-row items-center justify-between">
+            <div key={item.id} className="relative flex flex-col md:flex-row items-start md:items-center justify-between">
               
-              {/* Timeline Center Bullet Pin */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-2 border-zinc-900 bg-black z-20 flex items-center justify-center">
+              {/* Mobile: left bullet | Desktop: center bullet */}
+              <div className="absolute left-6 md:left-1/2 top-4 md:top-auto transform -translate-x-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full border-2 border-zinc-900 bg-black z-20 flex items-center justify-center">
                 <motion.div 
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
@@ -166,10 +166,10 @@ export default function Timeline({ items }: TimelineProps) {
                 />
               </div>
 
-              {/* Milestone Card container */}
-              <div className={`w-full md:w-[45%] ${isLeft ? 'md:mr-auto' : 'md:ml-auto'} flex ${isLeft ? 'justify-end' : 'justify-start'} mt-4 md:mt-0`}>
+              {/* Mobile: full-width card offset from left line | Desktop: alternating */}
+              <div className={`w-full pl-12 md:pl-0 md:w-[45%] ${isLeft ? 'md:mr-auto' : 'md:ml-auto'} flex ${isLeft ? 'md:justify-end justify-start' : 'justify-start'} mt-0 md:mt-0`}>
                 <motion.div
-                  initial={{ opacity: 0, x: isLeft ? -40 : 40, y: 20 }}
+                  initial={{ opacity: 0, x: 20, y: 10 }}
                   whileInView={{ opacity: 1, x: 0, y: 0 }}
                   viewport={{ once: true, margin: '-50px' }}
                   transition={{ type: 'spring', stiffness: 100, damping: 15 }}

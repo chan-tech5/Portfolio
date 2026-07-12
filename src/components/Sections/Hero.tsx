@@ -227,8 +227,9 @@ export default function Hero({ personal }: HeroProps) {
 
   return (
     <section 
-      className="relative min-h-screen flex flex-col justify-center items-center py-20 px-4 overflow-hidden grid-bg"
+      className="relative flex flex-col justify-center items-center py-16 md:py-20 px-4 overflow-hidden grid-bg"
       style={{
+        minHeight: 'calc(100dvh)',
         backgroundImage: media.backgroundCover ? `radial-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.95)), url(${media.backgroundCover})` : undefined,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
