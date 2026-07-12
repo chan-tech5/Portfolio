@@ -211,12 +211,12 @@ export default function Timeline({ items }: TimelineProps) {
 
                     {/* Image Preview inside Timeline card */}
                     {item.image && (
-                      <div className="relative w-full h-28 rounded-xl overflow-hidden mb-3 border border-white/5 bg-zinc-950">
+                      <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-3 border border-white/5 bg-zinc-950">
                         <Image 
                           src={item.image} 
                           alt={item.title} 
                           fill 
-                          sizes="300px"
+                          sizes="(max-width: 768px) calc(100vw - 96px), 45vw"
                           className="object-cover group-hover:scale-105 transition-transform duration-500" 
                         />
                         <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]">
@@ -276,7 +276,7 @@ export default function Timeline({ items }: TimelineProps) {
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Visual Section: Image display or gradient backdrop */}
-                <div className="relative w-full md:w-1/2 h-56 md:h-auto min-h-[220px] bg-zinc-900 flex items-center justify-center border-b md:border-b-0 md:border-r border-zinc-800 overflow-hidden">
+                <div className="relative w-full md:w-1/2 aspect-video md:aspect-auto md:min-h-[220px] bg-zinc-900 flex items-center justify-center border-b md:border-b-0 md:border-r border-zinc-800 overflow-hidden">
                   {activeItem.image ? (
                     <>
                       <Image 

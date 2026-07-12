@@ -72,16 +72,16 @@ export default function About({ about }: AboutProps) {
   };
 
   return (
-    <section id="about" className="py-24 px-4 bg-zinc-950/40 relative">
-      <div className="container max-w-5xl mx-auto space-y-12">
+    <section id="about" className="py-12 md:py-24 px-4 bg-zinc-950/40 relative">
+      <div className="container max-w-5xl mx-auto space-y-8 md:space-y-12">
         
         {/* Section Heading */}
         <div className="text-center md:text-left space-y-3">
           <h2 className="text-xs uppercase font-extrabold tracking-widest text-purple-500">
             About Me
           </h2>
-          <p className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-            The Engineer & Communicator
+          <p className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+            The Engineer &amp; Communicator
           </p>
         </div>
 
@@ -122,7 +122,7 @@ export default function About({ about }: AboutProps) {
                 </div>
                 <div className="flex items-center justify-start sm:justify-end gap-4 border-l border-zinc-800 sm:pl-8 py-2">
                   <div className="text-left sm:text-right">
-                    <h4 className="text-3xl font-black text-blue-400">{about.cgpa}</h4>
+                    <h4 className="text-2xl md:text-3xl font-black text-blue-400">{about.cgpa}</h4>
                     <p className="text-xs font-bold text-white mt-1">Cumulative GPA</p>
                     <p className="text-xs text-zinc-500">Scale of 10.00</p>
                   </div>
@@ -149,7 +149,7 @@ export default function About({ about }: AboutProps) {
               </div>
 
               <div className="my-6">
-                <div className="text-3xl font-black text-white tracking-tight tabular-nums">
+                <div className="text-2xl md:text-3xl font-black text-white tracking-tight tabular-nums">
                   {time || '00:00:00 AM'}
                 </div>
                 <div className="text-zinc-400 text-sm font-semibold mt-1">
@@ -182,7 +182,7 @@ export default function About({ about }: AboutProps) {
                   {about.corePassions}
                 </p>
               </div>
-              <div className="text-[10px] text-zinc-500 uppercase mt-4 tracking-wider">
+              <div className="text-xs text-zinc-500 uppercase mt-4 tracking-wider">
                 #BACKEND #AI #CLOUD #LEADERSHIP
               </div>
             </Card>

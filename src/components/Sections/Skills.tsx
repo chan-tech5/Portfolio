@@ -131,16 +131,16 @@ export default function Skills({ skills, projects, experience, leadership: leade
   }, [selectedName, leadershipData]);
 
   return (
-    <section id="skills" className="py-24 px-4 relative">
-      <div className="container max-w-5xl mx-auto space-y-12">
+    <section id="skills" className="py-12 md:py-24 px-4 relative">
+      <div className="container max-w-5xl mx-auto space-y-8 md:space-y-12">
         
         {/* Section Heading */}
         <div className="text-center md:text-left space-y-3">
           <h2 className="text-xs uppercase font-extrabold tracking-widest text-blue-500">
             Expertise
           </h2>
-          <p className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-            Skill Catalog & Capabilities
+          <p className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+            Skill Catalog &amp; Capabilities
           </p>
         </div>
 
@@ -178,7 +178,7 @@ export default function Skills({ skills, projects, experience, leadership: leade
                         whileHover={{ scale: 1.04 }}
                         transition={{ type: 'spring', stiffness: 450, damping: 12 }}
                         onClick={() => handleOpenSkill(typeof skill === 'string' ? { name: skill, level: 80, years: 1 } : skill, cat.title)}
-                        className={`px-3 py-1.5 rounded-xl bg-zinc-900/60 border border-zinc-800/80 text-xs font-semibold text-zinc-400 cursor-pointer shadow-sm transition-all duration-300 flex items-center group/skill ${cat.pillBg}`}
+                        className={`px-3 py-2 rounded-xl bg-zinc-900/60 border border-zinc-800/80 text-xs font-semibold text-zinc-400 cursor-pointer shadow-sm transition-all duration-300 flex items-center group/skill ${cat.pillBg}`}
                       >
                         {skillName}
                         <span className="text-[9px] bg-zinc-950/60 border border-zinc-850/80 text-zinc-500 font-bold px-1.5 py-0.5 rounded-md ml-1.5 group-hover/skill:text-purple-300 transition-colors">
@@ -203,19 +203,20 @@ export default function Skills({ skills, projects, experience, leadership: leade
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setSelectedSkill(null)}
-                className="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 cursor-zoom-out"
+                className="fixed inset-0 bg-black/85 backdrop-blur-md z-50 cursor-zoom-out"
               />
 
               {/* Centered details box */}
+              <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
               <motion.div
                 role="dialog"
                 aria-modal="true"
                 aria-label={`Skill details: ${selectedSkill.name}`}
-                initial={{ opacity: 0, scale: 0.95, y: '-40%', x: '-50%' }}
-                animate={{ opacity: 1, scale: 1, y: '-50%', x: '-50%' }}
-                exit={{ opacity: 0, scale: 0.95, y: '-40%', x: '-50%' }}
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.2 }}
-                className="fixed top-1/2 left-1/2 w-full max-w-md bg-zinc-950 border border-zinc-800 rounded-3xl z-50 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.85)] cursor-default p-6 space-y-5 flex flex-col max-h-[85vh]"
+                className="w-full max-w-md bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.85)] cursor-default p-6 space-y-5 flex flex-col max-h-[85vh] pointer-events-auto"
               >
                 {/* Header */}
                 <div className="flex justify-between items-start">
@@ -225,7 +226,7 @@ export default function Skills({ skills, projects, experience, leadership: leade
                   </div>
                   <button 
                     onClick={() => setSelectedSkill(null)}
-                    className="p-1.5 rounded-xl hover:bg-zinc-900 border border-transparent hover:border-zinc-850 text-zinc-400 hover:text-white transition-all cursor-pointer"
+                    className="p-3 rounded-xl hover:bg-zinc-900 border border-transparent hover:border-zinc-800 text-zinc-400 hover:text-white transition-all cursor-pointer"
                   >
                     <X size={16} />
                   </button>
@@ -320,6 +321,7 @@ export default function Skills({ skills, projects, experience, leadership: leade
 
                 </div>
               </motion.div>
+              </div>
             </>
           )}
         </AnimatePresence>

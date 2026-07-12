@@ -88,7 +88,7 @@ export default function Achievements({ achievements }: AchievementsProps) {
   };
 
   return (
-    <section id="achievements" className="py-24 px-4 bg-black relative">
+    <section id="achievements" className="py-12 md:py-24 px-4 bg-black relative">
       {/* Background decorations */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -97,7 +97,7 @@ export default function Achievements({ achievements }: AchievementsProps) {
           <h2 className="text-xs uppercase font-extrabold tracking-widest text-blue-500 flex items-center justify-center md:justify-start gap-1.5">
             <Sparkles size={12} className="text-blue-500" /> Milestones
           </h2>
-          <p className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          <p className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
             Achievements & Collectibles
           </p>
           <p className="text-zinc-500 text-xs max-w-md">
@@ -114,14 +114,17 @@ export default function Achievements({ achievements }: AchievementsProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className={`badge-3d w-full h-[230px] ${flippedCards.has(ach.id) ? 'flipped' : ''}`}
+              className={`badge-3d w-full min-h-[230px] ${flippedCards.has(ach.id) ? 'flipped' : ''}`}
               tabIndex={0}
               role="button"
-              aria-label={`${ach.title} - ${ach.organization}. Click to flip or press Enter for details.`}
-              onClick={() => toggleFlip(ach.id)}
-              onDoubleClick={() => {
-                setSelectedAch(ach);
-                setCarouselIndex(0);
+              aria-label={`${ach.title} - ${ach.organization}. Click to flip, click again to open details.`}
+              onClick={() => {
+                if (flippedCards.has(ach.id)) {
+                  setSelectedAch(ach);
+                  setCarouselIndex(0);
+                } else {
+                  toggleFlip(ach.id);
+                }
               }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
@@ -162,7 +165,7 @@ export default function Achievements({ achievements }: AchievementsProps) {
                     {ach.description}
                   </p>
                   <span className="text-[8px] text-blue-400 font-extrabold uppercase tracking-widest mt-4">
-                    Click to Open Full View
+                    Tap again to open details
                   </span>
                 </div>
               </div>
@@ -252,7 +255,7 @@ export default function Achievements({ achievements }: AchievementsProps) {
               )}
 
               {/* Right Column: Information & CTAs */}
-              <div className="flex-1 p-6 md:p-8 flex flex-col justify-between overflow-y-auto max-h-[50vh] md:max-h-none">
+              <div className="flex-1 p-5 md:p-8 flex flex-col justify-between overflow-y-auto">
                 <div className="space-y-6">
                   {/* Top Close Button */}
                   <div className="flex justify-between items-start">
@@ -261,7 +264,7 @@ export default function Achievements({ achievements }: AchievementsProps) {
                     </span>
                     <button
                       onClick={() => setSelectedAch(null)}
-                      className="text-zinc-500 hover:text-white transition-colors cursor-pointer text-xs font-bold"
+                      className="px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-xl text-zinc-400 hover:text-white text-xs font-bold cursor-pointer transition-colors"
                     >
                       Close
                     </button>

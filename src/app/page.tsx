@@ -371,7 +371,7 @@ export default function Home() {
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      const navHeight = 64; // sticky header height
+      const navHeight = document.querySelector('header')?.offsetHeight ?? 64;
       const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
       window.scrollTo({ top, behavior: 'smooth' });
     }
@@ -514,7 +514,7 @@ export default function Home() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-16 left-0 right-0 z-30 md:hidden bg-black/98 border-b border-white/10 backdrop-blur-2xl px-6 py-8 flex flex-col gap-6 overflow-hidden"
+              className="absolute top-16 left-0 right-0 z-30 md:hidden bg-black/98 border-b border-white/10 backdrop-blur-2xl px-4 py-5 flex flex-col gap-3 overflow-y-auto max-h-[calc(100vh-64px)]"
             >
               <nav className="flex flex-col gap-1 text-sm font-semibold uppercase tracking-wider text-zinc-400" aria-label="Mobile navigation">
                 {navLinks.map((link, idx) => {
@@ -568,13 +568,13 @@ export default function Home() {
 
       {/* Timeline Section */}
       {((portfolioData.settings as any)?.visibility?.timeline ?? true) && (
-        <section id="journey" className="py-24 px-4 bg-zinc-950/20 relative">
-          <div className="container max-w-5xl mx-auto space-y-12">
+        <section id="journey" className="py-12 md:py-24 px-4 bg-zinc-950/20 relative">
+          <div className="container max-w-5xl mx-auto space-y-8 md:space-y-12">
             <div className="text-center md:text-left space-y-3">
               <h2 className="text-xs uppercase font-extrabold tracking-widest text-blue-500">
                 Narrative
               </h2>
-              <p className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+              <p className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
                 My Journey Timeline
               </p>
             </div>

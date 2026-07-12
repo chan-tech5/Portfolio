@@ -93,7 +93,7 @@ export default function Leadership({ leadership }: LeadershipProps) {
   };
 
   return (
-    <section id="leadership" className="py-24 px-4 bg-zinc-950/20 relative overflow-hidden">
+    <section id="leadership" className="py-12 md:py-24 px-4 bg-zinc-950/20 relative overflow-hidden">
       {/* Blurred background orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-600/5 rounded-full blur-[140px] pointer-events-none" />
 
@@ -104,7 +104,7 @@ export default function Leadership({ leadership }: LeadershipProps) {
           <h2 className="text-xs uppercase font-extrabold tracking-widest text-pink-500 flex items-center gap-1.5 justify-center md:justify-start">
             <Sparkles size={12} className="text-pink-500 animate-pulse" /> Community
           </h2>
-          <p className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          <p className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
             Leadership & Impact
           </p>
         </div>
@@ -301,7 +301,7 @@ export default function Leadership({ leadership }: LeadershipProps) {
                           href={role.links.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-1.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 rounded-lg text-zinc-500 hover:text-white transition-colors"
+                          className="p-2.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 rounded-lg text-zinc-500 hover:text-white transition-colors"
                         >
                           <Linkedin size={11} />
                         </a>
@@ -311,7 +311,7 @@ export default function Leadership({ leadership }: LeadershipProps) {
                           href={role.links.project}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-1.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 rounded-lg text-zinc-500 hover:text-white transition-colors"
+                          className="p-2.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 rounded-lg text-zinc-500 hover:text-white transition-colors"
                         >
                           <Globe size={11} />
                         </a>
@@ -353,7 +353,7 @@ export default function Leadership({ leadership }: LeadershipProps) {
               {/* Close Button */}
               <button
                 onClick={() => setSelectedRole(null)}
-                className="absolute top-4 right-4 z-20 p-2 bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 rounded-full text-zinc-400 hover:text-white transition-colors cursor-pointer"
+                className="absolute top-4 right-4 z-20 p-3 bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 rounded-full text-zinc-400 hover:text-white transition-colors cursor-pointer"
               >
                 <X size={16} />
               </button>
@@ -404,13 +404,13 @@ export default function Leadership({ leadership }: LeadershipProps) {
                           <>
                             <button
                               onClick={() => handlePrevSlide(selectedRole.gallery!.length)}
-                              className="absolute left-3 top-1/2 -translate-y-1/2 p-1.5 bg-black/60 hover:bg-black/80 rounded-lg text-white border border-white/5 transition-all opacity-0 group-hover/slideshow:opacity-100 cursor-pointer"
+                              className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 bg-black/60 hover:bg-black/80 rounded-lg text-white border border-white/5 transition-all opacity-70 sm:opacity-0 group-hover/slideshow:opacity-100 cursor-pointer"
                             >
                               <ChevronLeft size={16} />
                             </button>
                             <button
                               onClick={() => handleNextSlide(selectedRole.gallery!.length)}
-                              className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 bg-black/60 hover:bg-black/80 rounded-lg text-white border border-white/5 transition-all opacity-0 group-hover/slideshow:opacity-100 cursor-pointer"
+                              className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 bg-black/60 hover:bg-black/80 rounded-lg text-white border border-white/5 transition-all opacity-70 sm:opacity-0 group-hover/slideshow:opacity-100 cursor-pointer"
                             >
                               <ChevronRight size={16} />
                             </button>

@@ -253,14 +253,14 @@ export default function Hero({ personal }: HeroProps) {
             Available for Opportunities
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white leading-[1.1]">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight text-white leading-[1.1] break-words">
             Hey, I'm <br />
             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
               {personal.name}.
             </span>
           </h1>
 
-          <div className="h-10 text-xl md:text-2xl font-semibold text-zinc-300">
+          <div className="min-h-[2.5rem] text-lg sm:text-xl md:text-2xl font-semibold text-zinc-300">
             <span className={`pr-1 py-1 border-r-2 ${isPaused ? 'border-transparent' : 'typing-cursor border-purple-500'}`}>
               {displayText}
             </span>
@@ -304,7 +304,7 @@ export default function Hero({ personal }: HeroProps) {
           style={{
             perspective: 1000,
           }}
-          className="relative flex-shrink-0 w-64 h-64 md:w-80 md:h-80 select-none group"
+          className="relative flex-shrink-0 w-48 h-48 sm:w-56 sm:h-56 md:w-80 md:h-80 select-none group"
         >
           {/* Glowing neon borders */}
           <div 
@@ -357,13 +357,15 @@ export default function Hero({ personal }: HeroProps) {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="w-full container max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-4 mt-20 z-10"
+        className="w-full container max-w-4xl mx-auto grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-4 mt-10 md:mt-20 z-10"
       >
         <StatCounter label="Certifications" value={personal.stats.certifications} suffix="+" />
         <StatCounter label="AI/Web Projects" value={personal.stats.projects} />
         <StatCounter label="Internships" value={personal.stats.internships} />
         <StatCounter label="Leadership Roles" value={personal.stats.leadership} />
-        <StatCounter label="Students Reached" value={personal.stats.impact} suffix="+" />
+        <div className="col-span-3 md:col-span-1">
+          <StatCounter label="Students Reached" value={personal.stats.impact} suffix="+" />
+        </div>
       </motion.div>
 
       {/* Scroll indicator */}
@@ -371,7 +373,13 @@ export default function Hero({ personal }: HeroProps) {
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 1.5 }}
         className="absolute bottom-8 cursor-pointer text-zinc-500 hover:text-white transition-colors duration-200 z-10"
-        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => {
+          const el = document.getElementById('about');
+          if (el) {
+            const top = el.getBoundingClientRect().top + window.scrollY - 64;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        }}
       >
         <ArrowDown size={20} />
       </motion.div>

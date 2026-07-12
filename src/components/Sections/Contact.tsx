@@ -98,7 +98,7 @@ export default function Contact({ personal }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 bg-zinc-950/20 relative">
+    <section id="contact" className="py-12 md:py-24 px-4 bg-zinc-950/20 relative">
       <div className="container max-w-5xl mx-auto space-y-12">
         
         {/* Section Heading */}
@@ -141,7 +141,7 @@ export default function Contact({ personal }: ContactProps) {
                   <button
                     onClick={handleCopyEmail}
                     title="Copy email to clipboard"
-                    className="p-2 rounded-lg bg-zinc-900/60 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-zinc-400 hover:text-white transition-all shrink-0 ml-2"
+                    className="p-3 rounded-lg bg-zinc-900/60 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-zinc-400 hover:text-white transition-all shrink-0 ml-2"
                   >
                     {copiedEmail ? <Check size={12} className="text-green-400" /> : <Copy size={12} />}
                   </button>
@@ -338,7 +338,7 @@ export default function Contact({ personal }: ContactProps) {
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full bg-zinc-900/60 border border-zinc-800 focus:border-purple-500/40 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:ring-1 focus:ring-purple-500/20 transition-all"
+                          className="w-full bg-zinc-900/60 border border-zinc-800 focus:border-purple-500/40 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-1 focus:ring-purple-500/20 transition-all"
                           placeholder="E.g., Chandru S"
                         />
                       </div>
@@ -352,7 +352,7 @@ export default function Contact({ personal }: ContactProps) {
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full bg-zinc-900/60 border border-zinc-800 focus:border-purple-500/40 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:ring-1 focus:ring-purple-500/20 transition-all"
+                          className="w-full bg-zinc-900/60 border border-zinc-800 focus:border-purple-500/40 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-1 focus:ring-purple-500/20 transition-all"
                           placeholder="E.g., developer@domain.com"
                         />
                       </div>
@@ -366,7 +366,7 @@ export default function Contact({ personal }: ContactProps) {
                           rows={4}
                           value={formData.message}
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                          className="w-full bg-zinc-900/60 border border-zinc-800 focus:border-purple-500/40 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:ring-1 focus:ring-purple-500/20 transition-all resize-none"
+                          className="w-full bg-zinc-900/60 border border-zinc-800 focus:border-purple-500/40 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-1 focus:ring-purple-500/20 transition-all resize-none"
                           placeholder="Enter your inquiry details here..."
                         />
                       </div>
@@ -438,12 +438,12 @@ export default function Contact({ personal }: ContactProps) {
                   {personal.socials.email}
                 </a>
               </span>
-              <button
+                <button
                 onClick={handleCopyEmail}
-                className="p-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-500 hover:text-white transition-colors ml-1"
+                className="p-2.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-500 hover:text-white transition-colors ml-1"
                 title="Copy email"
               >
-                {copiedEmail ? <Check size={10} className="text-green-400" /> : <Copy size={10} />}
+                {copiedEmail ? <Check size={12} className="text-green-400" /> : <Copy size={12} />}
               </button>
             </div>
           </div>

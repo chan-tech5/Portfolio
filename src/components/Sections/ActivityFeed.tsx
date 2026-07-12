@@ -47,15 +47,15 @@ function ImageCarousel({ images }: { images: string[] }) {
         <img
           src={images[idx]}
           alt=""
-          className="w-full h-44 object-cover cursor-zoom-in transition-transform duration-500 group-hover/carousel:scale-105"
+          className="w-full aspect-video object-cover cursor-zoom-in transition-transform duration-500 group-hover/carousel:scale-105"
           onClick={() => setLightbox(true)}
         />
         {images.length > 1 && (
           <>
-            <button onClick={prev} className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-black/60 hover:bg-black/80 backdrop-blur-sm rounded-full flex items-center justify-center text-white opacity-0 group-hover/carousel:opacity-100 transition-opacity cursor-pointer">
+            <button onClick={prev} className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-black/80 backdrop-blur-sm rounded-full flex items-center justify-center text-white opacity-70 sm:opacity-0 group-hover/carousel:opacity-100 transition-opacity cursor-pointer">
               <ChevronLeft size={14} />
             </button>
-            <button onClick={next} className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-black/60 hover:bg-black/80 backdrop-blur-sm rounded-full flex items-center justify-center text-white opacity-0 group-hover/carousel:opacity-100 transition-opacity cursor-pointer">
+            <button onClick={next} className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-black/80 backdrop-blur-sm rounded-full flex items-center justify-center text-white opacity-70 sm:opacity-0 group-hover/carousel:opacity-100 transition-opacity cursor-pointer">
               <ChevronRight size={14} />
             </button>
             <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
@@ -122,7 +122,7 @@ function LightboxModal({ images, currentIdx, onClose, onChangeIdx }: {
         )}
         <button
           onClick={onClose}
-          className="absolute -top-4 -right-4 w-8 h-8 bg-zinc-900 border border-zinc-700 rounded-full flex items-center justify-center text-zinc-400 hover:text-white cursor-pointer transition-colors"
+          className="absolute top-2 right-2 w-11 h-11 bg-zinc-900 border border-zinc-700 rounded-full flex items-center justify-center text-zinc-400 hover:text-white cursor-pointer transition-colors z-20"
           aria-label="Close lightbox"
         >
           <X size={14} />
@@ -146,7 +146,7 @@ export default function ActivityFeed({ updates }: ActivityFeedProps) {
   };
 
   return (
-    <section id="updates" className="py-24 px-4 relative">
+    <section id="updates" className="py-12 md:py-24 px-4 relative">
       <div className="container max-w-5xl mx-auto space-y-12">
         
         {/* Section Heading */}
@@ -154,7 +154,7 @@ export default function ActivityFeed({ updates }: ActivityFeedProps) {
           <h2 className="text-xs uppercase font-extrabold tracking-widest text-blue-500">
             Activity
           </h2>
-          <p className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          <p className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
             Latest Updates
           </p>
         </div>
@@ -166,7 +166,7 @@ export default function ActivityFeed({ updates }: ActivityFeedProps) {
             <h3 className="font-extrabold text-white text-lg">Live updates feed</h3>
           </div>
 
-          <div className="glass p-6 rounded-3xl border-white/5 bg-black/40 relative overflow-hidden space-y-6 max-h-[700px] overflow-y-auto pr-2">
+          <div className="glass p-4 md:p-6 rounded-3xl border-white/5 bg-black/40 relative space-y-6 max-h-[60vh] md:max-h-[700px] overflow-y-auto pr-2">
             {visibleUpdates.length === 0 ? (
               <p className="text-zinc-500 text-sm">No updates posted yet. Use /workspace to add milestones.</p>
             ) : (

@@ -55,13 +55,13 @@ export default function Certifications({ certifications }: CertificationsProps) 
   const [selectedProof, setSelectedProof] = useState<{ name: string; proof: string } | null>(null);
 
   return (
-    <section id="credentials" className="py-24 px-4 bg-zinc-950/40 relative">
+    <section id="credentials" className="py-12 md:py-24 px-4 bg-zinc-950/40 relative">
       <div className="container max-w-5xl mx-auto space-y-12">
         <div className="text-center md:text-left space-y-3">
           <h2 className="text-xs uppercase font-extrabold tracking-widest text-purple-500">
             Credentials
           </h2>
-          <p className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          <p className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
             Professional Certifications
           </p>
         </div>
@@ -142,7 +142,7 @@ export default function Certifications({ certifications }: CertificationsProps) 
                   {cert.verificationProof && (
                     <button
                       onClick={() => setSelectedProof({ name: cert.name, proof: cert.verificationProof! })}
-                      className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-purple-500/10 hover:bg-purple-500/20 text-purple-350 hover:text-white font-bold text-[10px] rounded-xl border border-purple-500/20 hover:border-purple-500/30 transition-all cursor-pointer"
+                      className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-purple-500/10 hover:bg-purple-500/20 text-purple-350 hover:text-white font-bold text-xs rounded-xl border border-purple-500/20 hover:border-purple-500/30 transition-all cursor-pointer"
                     >
                       <Eye size={12} /> View PDF
                     </button>
@@ -152,7 +152,7 @@ export default function Certifications({ certifications }: CertificationsProps) 
                       href={cert.verificationUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-zinc-950 hover:bg-zinc-900 text-zinc-300 hover:text-white font-bold text-[10px] rounded-xl border border-zinc-800 hover:border-zinc-700 transition-all cursor-pointer text-center"
+                      className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-zinc-950 hover:bg-zinc-900 text-zinc-300 hover:text-white font-bold text-xs rounded-xl border border-zinc-800 hover:border-zinc-700 transition-all cursor-pointer text-center"
                     >
                       <ExternalLink size={12} /> Verify Link
                     </a>

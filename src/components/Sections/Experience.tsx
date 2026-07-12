@@ -99,12 +99,12 @@ export default function Experience({ experience }: ExperienceProps) {
   };
 
   return (
-    <section id="experience" className="py-24 px-4 relative overflow-hidden">
+    <section id="experience" className="py-12 md:py-24 px-4 relative overflow-hidden">
       {/* Decorative background glows */}
       <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-purple-600/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/3 right-1/4 w-[300px] h-[300px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="container max-w-5xl mx-auto space-y-10 relative z-10">
+      <div className="container max-w-5xl mx-auto space-y-6 md:space-y-10 relative z-10">
         
         {/* Section Heading */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-zinc-900 pb-8">
@@ -112,7 +112,7 @@ export default function Experience({ experience }: ExperienceProps) {
             <h2 className="text-xs uppercase font-extrabold tracking-widest text-blue-500">
               Employment
             </h2>
-            <p className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
               Professional Experience
             </p>
           </div>
@@ -123,7 +123,7 @@ export default function Experience({ experience }: ExperienceProps) {
               <button
                 key={filter}
                 onClick={() => setSelectedFilter(filter)}
-                className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 border ${
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 border ${
                   selectedFilter === filter
                     ? 'bg-purple-600/25 border-purple-500/50 text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.15)]'
                     : 'bg-zinc-950/60 border-zinc-900 text-zinc-400 hover:text-zinc-300 hover:border-zinc-800'
@@ -397,12 +397,12 @@ export default function Experience({ experience }: ExperienceProps) {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
                 transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-                className="relative w-full max-w-3xl max-h-[85vh] bg-zinc-950 border border-zinc-900 rounded-3xl overflow-y-auto p-6 md:p-8 space-y-6 scrollbar-thin shadow-[0_0_50px_rgba(0,0,0,0.8)]"
+                className="relative w-full max-w-3xl max-h-[92vh] md:max-h-[85vh] bg-zinc-950 border border-zinc-900 rounded-3xl overflow-y-auto p-4 md:p-8 space-y-6 scrollbar-thin shadow-[0_0_50px_rgba(0,0,0,0.8)]"
               >
                 {/* Close Button */}
                 <button
                   onClick={() => setActiveExp(null)}
-                  className="absolute top-6 right-6 text-zinc-500 hover:text-white p-2 rounded-xl bg-zinc-900 border border-zinc-800 cursor-pointer transition-colors"
+                  className="absolute top-4 right-4 text-zinc-500 hover:text-white p-3 rounded-xl bg-zinc-900 border border-zinc-800 cursor-pointer transition-colors z-10"
                 >
                   <X size={16} />
                 </button>
@@ -548,13 +548,13 @@ export default function Experience({ experience }: ExperienceProps) {
                         <>
                           <button
                             onClick={() => setActiveImageIdx((activeImageIdx - 1 + galleryList.length) % galleryList.length)}
-                            className="absolute left-4 p-2 rounded-xl bg-black/60 backdrop-blur-md text-white border border-zinc-800/50 hover:bg-black transition-colors opacity-0 group-hover:opacity-100 cursor-pointer"
+                            className="absolute left-4 p-2.5 rounded-xl bg-black/60 backdrop-blur-md text-white border border-zinc-800/50 hover:bg-black transition-colors opacity-70 sm:opacity-0 group-hover:opacity-100 cursor-pointer"
                           >
                             <ChevronLeft size={16} />
                           </button>
                           <button
                             onClick={() => setActiveImageIdx((activeImageIdx + 1) % galleryList.length)}
-                            className="absolute right-4 p-2 rounded-xl bg-black/60 backdrop-blur-md text-white border border-zinc-800/50 hover:bg-black transition-colors opacity-0 group-hover:opacity-100 cursor-pointer"
+                            className="absolute right-4 p-2.5 rounded-xl bg-black/60 backdrop-blur-md text-white border border-zinc-800/50 hover:bg-black transition-colors opacity-70 sm:opacity-0 group-hover:opacity-100 cursor-pointer"
                           >
                             <ChevronRight size={16} />
                           </button>

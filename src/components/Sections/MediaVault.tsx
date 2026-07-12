@@ -273,7 +273,7 @@ export default function MediaVault({ media }: MediaVaultProps) {
   }, {});
 
   return (
-    <section id="gallery" className="py-24 px-4 bg-zinc-950/30 relative overflow-hidden">
+    <section id="gallery" className="py-12 md:py-24 px-4 bg-zinc-950/30 relative overflow-hidden">
       {/* Ambient glow */}
       <div className="absolute top-32 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-500/5 blur-[100px] rounded-full pointer-events-none" />
 

@@ -143,7 +143,7 @@ export default function Projects({ projects }: ProjectsProps) {
   };
 
   return (
-    <section id="projects" className="py-24 px-4 bg-zinc-950/40 relative">
+    <section id="projects" className="py-12 md:py-24 px-4 bg-zinc-950/40 relative">
       <div className="container max-w-5xl mx-auto space-y-12">
         
         {/* Section Heading */}
@@ -152,7 +152,7 @@ export default function Projects({ projects }: ProjectsProps) {
             <h2 className="text-xs uppercase font-extrabold tracking-widest text-purple-500">
               Portfolio
             </h2>
-            <p className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
               Selected Creations
             </p>
           </div>
@@ -286,7 +286,7 @@ export default function Projects({ projects }: ProjectsProps) {
                 role="dialog"
                 aria-modal="true"
                 aria-label={`Project details: ${selectedProject.title}`}
-                className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl bg-zinc-950 border border-zinc-800/80 rounded-3xl z-50 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.85)] cursor-default max-h-[90vh] flex flex-col"
+                className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-3xl bg-zinc-950 border border-zinc-800/80 rounded-3xl z-50 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.85)] cursor-default max-h-[90vh] flex flex-col"
               >
                 {/* Header Section */}
                 <div className="relative p-6 border-b border-zinc-900 bg-gradient-to-r from-purple-950/20 via-blue-950/20 to-zinc-950 flex justify-between items-center shrink-0">
@@ -485,13 +485,13 @@ export default function Projects({ projects }: ProjectsProps) {
                               <>
                                 <button
                                   onClick={() => setScreenshotIdx((prev) => (prev - 1 + selectedProject.screenshots!.length) % selectedProject.screenshots!.length)}
-                                  className="absolute left-4 p-2 bg-zinc-950/80 hover:bg-zinc-900 border border-zinc-800 text-white rounded-xl cursor-pointer opacity-0 group-hover/slider:opacity-100 transition-opacity"
+                                  className="absolute left-4 p-2.5 bg-zinc-950/80 hover:bg-zinc-900 border border-zinc-800 text-white rounded-xl cursor-pointer opacity-70 sm:opacity-0 group-hover/slider:opacity-100 transition-opacity"
                                 >
                                   <ChevronLeft size={16} />
                                 </button>
                                 <button
                                   onClick={() => setScreenshotIdx((prev) => (prev + 1) % selectedProject.screenshots!.length)}
-                                  className="absolute right-4 p-2 bg-zinc-950/80 hover:bg-zinc-900 border border-zinc-800 text-white rounded-xl cursor-pointer opacity-0 group-hover/slider:opacity-100 transition-opacity"
+                                  className="absolute right-4 p-2.5 bg-zinc-950/80 hover:bg-zinc-900 border border-zinc-800 text-white rounded-xl cursor-pointer opacity-70 sm:opacity-0 group-hover/slider:opacity-100 transition-opacity"
                                 >
                                   <ChevronRight size={16} />
                                 </button>
